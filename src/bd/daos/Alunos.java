@@ -49,7 +49,7 @@ public class Alunos
             String sql;
 
             sql = "INSERT INTO ALUNOS " +
-                  "(RA,NOME,EMAIL) " +
+                  "(RA,NOME,CEP) " +
                   "VALUES " +
                   "(?,?,?)";
 
@@ -168,68 +168,5 @@ public class Alunos
 
         return aluno;
     }
-	
-	public static String frequenciaZero() throws Exception
-	{		
-		String ret = null;  
-		
-		try
-		{
-			String sql = "SELECT NOME FROM ALUNOS, FEZ WHERE ALUNOS.RA = FEZ.RA AND FEZ.FREQUENCIA = 0";
-			
-			BDSQLServer.COMANDO.prepareStatement (sql);
-			
-		    MeuResultSet resultado = (MeuResultSet)BDSQLServer.COMANDO.executeQuery ();
-
-            if (!resultado.first())
-               throw new Exception ("Nao existem alunos com frequencia 0!");
-   
-            ret = resultado.getString("nome")+",  ";
-            
-           while(resultado.next())
-           {        	   
-        	   ret+= resultado.getString("nome") + ", ";                          
-           }
-	            
-		}
-		catch(SQLException erro)
-		{
-			throw new Exception("Erro ao achar alunos com frequencia 0!");
-		}
-		
-		return 	ret;
-	}
-	public static String alunosOrdenadosPelaMediaDasMaterias() throws Exception
-	{		
-		String ret = null;  
-		
-		try
-		{
-			String sql = "SELECT Alunos.NOME FROM MATERIAS, FEZ, Alunos WHERE fez.cod = Materias.cod and ALUNOS.RA = FEZ.RA order by fez.nota";
-			
-			BDSQLServer.COMANDO.prepareStatement (sql);
-			
-		    MeuResultSet resultado = (MeuResultSet)BDSQLServer.COMANDO.executeQuery ();
-
-            if (!resultado.first())
-               throw new Exception ("Não existem alunos cursando esta máteria");
-   
-            ret = resultado.getString("nome")+",  ";
-            
-           while(resultado.next())
-           {
-        	   ret += resultado.getString("nome") + ", ";       	                            
-           }
-         
-	            
-		}
-		catch(SQLException erro)
-		{
-			throw new Exception("Erro ao achar média de máterias!");
-		}
-		
-		return 	ret;
-	}
-	
 	
 }
