@@ -27,7 +27,7 @@ public class Programa
         	//Fezz.(1,2);
         	//Materia materia = new Materia();
         	//Fezz.getFez(5,3);
-        	System.out.println(Alunos.alunosOrdenadosPelaMediaDasMaterias());
+        	
 
         }
         catch (Exception e)
