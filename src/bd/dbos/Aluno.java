@@ -4,7 +4,7 @@ public class Aluno implements Cloneable
 {
 	private int ra;
 	private String nome;
-	private String email;
+	private String cep;
 	
 	public int getRa()
 	{
@@ -18,7 +18,7 @@ public class Aluno implements Cloneable
 	
 	public String getEmail()
 	{
-		 return this.email;
+		 return this.cep;
 	}
 	
 	public void setRa (int ra) throws Exception
@@ -37,12 +37,12 @@ public class Aluno implements Cloneable
 			 this.nome = nome;
 	}
 		  
-	public void setEmail (String email) throws Exception
+	public void setEmail (String cep) throws Exception
 	{
-		if (email==null || email.equals(""))
+		if (cep==null || cep.equals(""))
 			 throw new Exception ("Email invalido");
 
-		 this.email = email;
+		 this.cep = cep;
 	}
 		  
 	public Aluno(int ra, String nome, String email)throws Exception
@@ -58,7 +58,7 @@ public class Aluno implements Cloneable
 
 		ret +="Ra : " + this.ra+"\n";
 		ret +="Nome : " + this.nome+"\n";
-		ret +="Email : " + this.email+"\n";
+		ret +="Email : " + this.cep+"\n";
 
 		return ret;
 	}
@@ -69,7 +69,7 @@ public class Aluno implements Cloneable
 
 		ret = ret + new Integer(this.ra).hashCode();
 		ret = ret + this.nome.hashCode();
-		ret = ret + this.email.hashCode();
+		ret = ret + this.cep.hashCode();
 
 		return ret;
 	}
@@ -78,7 +78,7 @@ public class Aluno implements Cloneable
 	{
 		this.ra = modelo.ra; // nao clono, pq nao eh objeto
 		this.nome = modelo.nome;
-		this.email = modelo.email;
+		this.cep = modelo.cep;
 
 	}
 	
