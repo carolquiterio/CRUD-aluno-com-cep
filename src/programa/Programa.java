@@ -3,6 +3,9 @@ package programa;
 import bd.daos.*;
 import bd.dbos.*;
 
+import cep.ClienteWS;
+import cep.Logradouro;
+
 public class Programa
 {
 
@@ -10,23 +13,9 @@ public class Programa
     {
         try
         {
-           //Alunos.incluir (new Aluno (18, "GFDG", "@DSFGD"));
-        //	Aluno aluno = new Aluno(5,"carolina","carolina@carolina");
-      // System.out.println(Materias.materiasOrdenadasPelaMediaDosAlunos());
-           
-         // if(Fezz.cadastrado(1,3))
-        	 //  System.out.println("sim");
-           
-          // if(!Fezz.cadastrado(1,4))
-        	 //  System.out.println("nao");
-        	//Aluno aluno = new Aluno(1, "Latoya", "@latoya");
-        	//Alunos.alunosOrdenadosPelaMediaDasMaterias();
-        	
-        	//Livros.getLivro(1);
-        	//Fez fez = new Fez(3,2,10.0,5);
-        	//Fezz.(1,2);
-        	//Materia materia = new Materia();
-        	//Fezz.getFez(5,3);
+            Logradouro logradouro =
+            (Logradouro)ClienteWS.getObjeto(Logradouro.class, "http://api.postmon.com.br/v1/cep", "13012000");
+            System.out.println (logradouro);
         	
 
         }

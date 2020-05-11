@@ -9,7 +9,8 @@ import javax.swing.SwingConstants;
 
 import bd.daos.Alunos;
 import bd.dbos.Aluno;
-
+import cep.ClienteWS;
+import cep.Logradouro;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -39,21 +40,32 @@ public class Projetoo2 {
 
 	private JFrame frame;
 	
+	Logradouro logradouro;	
 	Alunos  alunos = new Alunos(); 
 	private JTextField textField_1;
+	private JTextField textField_10;
+	private JTextField textField;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_10;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
+	private JTextField textField_9;
 	
 	public void trataIncluirAlunos() //throws Exception
 	{
 		try
 		{
-			textField_10.setText("");
+			textField_10.setText("");                         
 			int cod =  Integer.parseInt(textField_1.getText());
-			String nom = textField_2.getText();
-			String email = textField_3.getText();
-			Alunos.incluir(new Aluno(cod, nom, email));
+			String nom = textField.getText();
+			String cep = textField_2.getText();
+			int telefone = Integer.parseInt(textField_6.getText());
+			
+			Alunos.incluir(new Aluno(cod, nom, cep, telefone));
+			
 		}
 		catch(Exception err)
 		{
@@ -81,9 +93,10 @@ public class Projetoo2 {
 		{
 			textField_10.setText("");
 			int cod =  Integer.parseInt(textField_1.getText());
-			String nom = textField_2.getText();
-			String email = textField_3.getText();
-			Alunos.atualizar(new Aluno(cod, nom, email));
+			String nom = textField.getText();
+			String cep = textField_2.getText();
+			int telefone = Integer.parseInt(textField_6.getText());
+			Alunos.atualizar(new Aluno(cod, nom, cep, telefone));
 		}
 		catch(Exception err)
 		{
@@ -98,6 +111,30 @@ public class Projetoo2 {
 			textField_10.setText("");
 			int cod =  Integer.parseInt(textField_1.getText());
 			textField_10.setText(Alunos.getAluno(cod) + "\n");
+		}
+		catch(Exception err)
+		{
+			textField_10.setText(err.getMessage());
+		}
+	}
+	
+	public void trataPreencherEndereco() //throws Exception
+	{
+		try
+		{
+			String cep = textField_2.getText();
+			
+			logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "http://api.postmon.com.br/v1/cep", cep);
+			
+			
+			textField_5.setText(logradouro.getLogradouro() + "");
+		
+			textField_3.setText(logradouro.getCidade() + "");
+			
+			textField_4.setText(logradouro.getBairro() + "");
+			
+			textField_7.setText(logradouro.getEstado() + "");
+			
 		}
 		catch(Exception err)
 		{
@@ -158,29 +195,19 @@ public class Projetoo2 {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(100, 26, 232, 30);
+		textField_1.setBounds(75, 22, 118, 30);
 		panel_4.add(textField_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(100, 67, 232, 31);
-		panel_4.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(100, 109, 232, 30);
-		panel_4.add(textField_3);
-		
 		JLabel label = new JLabel("RA:");
-		label.setBounds(35, 26, 65, 30);
+		label.setBounds(10, 22, 65, 30);
 		panel_4.add(label);
 		
 		JLabel label_1 = new JLabel("Nome:");
-		label_1.setBounds(35, 67, 65, 30);
+		label_1.setBounds(10, 63, 65, 30);
 		panel_4.add(label_1);
 		
 		JLabel lblCep = new JLabel("CEP:");
-		lblCep.setBounds(35, 109, 65, 30);
+		lblCep.setBounds(10, 105, 65, 30);
 		panel_4.add(lblCep);
 		
 		JButton button_3 = new JButton("Incluir");
@@ -190,13 +217,21 @@ public class Projetoo2 {
 				try
 				{
 					trataIncluirAlunos();
+					textField.setText("");
 					textField_2.setText("");
 					textField_1.setText("");
 					textField_3.setText("");
+					textField_4.setText("");
+					textField_5.setText("");
+					textField_6.setText("");
+					textField_7.setText("");
+					textField_8.setText("");
+					textField_9.setText("");
+					
 				}
 				catch(Exception err)
 				{
-					textField_1.setText(err.getMessage());
+					textField_10.setText(err.getMessage());
 				}
 			}
 			
@@ -217,7 +252,7 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_4.setBounds(406, 56, 89, 23);
+		button_4.setBounds(406, 80, 89, 23);
 		panel_4.add(button_4);
 		
 		JButton button_5 = new JButton("Atualizar");
@@ -227,15 +262,22 @@ public class Projetoo2 {
 				try
 				{
 					trataAtualizarAlunos();
+					textField.setText("");
 					textField_2.setText("");
 					textField_1.setText("");
 					textField_3.setText("");
+					textField_4.setText("");
+					textField_5.setText("");
+					textField_6.setText("");
+					textField_7.setText("");
+					textField_8.setText("");
+					textField_9.setText("");
 				}
 				catch(Exception err)
 				{}
 			}
 		});
-		button_5.setBounds(406, 90, 89, 23);
+		button_5.setBounds(406, 134, 89, 23);
 		panel_4.add(button_5);
 		
 		JButton button_6 = new JButton("Consultar");
@@ -254,18 +296,100 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_6.setBounds(406, 124, 89, 23);
+		button_6.setBounds(406, 191, 89, 23);
 		panel_4.add(button_6);
 		
 		textField_10 = new JTextField();
 		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_10.setBounds(35, 206, 455, 76);
+		textField_10.setBounds(35, 252, 455, 30);
 		panel_4.add(textField_10);
 		textField_10.setColumns(10);
 		
 		JLabel label_9 = new JLabel("Os resultados da consulta apareceram aqui");
-		label_9.setBounds(37, 165, 276, 30);
+		label_9.setBounds(35, 223, 276, 30);
 		panel_4.add(label_9);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(75, 63, 118, 30);
+		panel_4.add(textField);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(75, 105, 118, 30);
+		panel_4.add(textField_2);		
+		
+		JLabel lblRua = new JLabel("Rua:");
+		lblRua.setBounds(203, 22, 65, 30);
+		panel_4.add(lblRua);
+		
+		JLabel lblBairro = new JLabel("Bairro:");
+		lblBairro.setBounds(203, 63, 65, 30);
+		panel_4.add(lblBairro);
+		
+		JLabel lblCidade = new JLabel("Cidade:");
+		lblCidade.setBounds(203, 105, 65, 30);
+		panel_4.add(lblCidade);
+		
+		textField_3 = new JTextField();
+		textField_3.setEditable(false);
+		textField_3.setColumns(10);
+		textField_3.setBounds(268, 105, 118, 30);
+		panel_4.add(textField_3);
+		
+		textField_4 = new JTextField();
+		textField_4.setEditable(false);
+		textField_4.setColumns(10);
+		textField_4.setBounds(268, 63, 118, 30);
+		panel_4.add(textField_4);
+		
+		textField_5 = new JTextField();
+		textField_5.setEditable(false);
+		textField_5.setColumns(10);
+		textField_5.setBounds(268, 22, 118, 30);
+		panel_4.add(textField_5);
+		
+		JLabel lblTelefone = new JLabel("Telefone:");
+		lblTelefone.setBounds(10, 146, 65, 30);
+		panel_4.add(lblTelefone);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(75, 146, 118, 30);
+		panel_4.add(textField_6);
+		textField_6.addMouseListener(new java.awt.event.MouseAdapter() {
+	        public void mouseClicked(java.awt.event.MouseEvent evt) {
+	            trataPreencherEndereco();
+	        }
+	    });
+		
+		JLabel lblEstado = new JLabel("Estado:");
+		lblEstado.setBounds(203, 146, 65, 30);
+		panel_4.add(lblEstado);
+		
+		textField_7 = new JTextField();
+		textField_7.setEditable(false);
+		textField_7.setColumns(10);
+		textField_7.setBounds(268, 146, 118, 30);
+		panel_4.add(textField_7);
+		
+		JLabel lblComplemento = new JLabel("Complto:");
+		lblComplemento.setBounds(203, 187, 65, 30);
+		panel_4.add(lblComplemento);
+		
+		JLabel lblNmero = new JLabel("N\u00FAmero:");
+		lblNmero.setBounds(10, 187, 65, 30);
+		panel_4.add(lblNmero);
+		
+		textField_8 = new JTextField();
+		textField_8.setColumns(10);
+		textField_8.setBounds(75, 187, 118, 30);
+		panel_4.add(textField_8);
+		
+		textField_9 = new JTextField();
+		textField_9.setColumns(10);
+		textField_9.setBounds(268, 187, 118, 30);
+		panel_4.add(textField_9);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {

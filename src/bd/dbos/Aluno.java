@@ -5,6 +5,7 @@ public class Aluno implements Cloneable
 	private int ra;
 	private String nome;
 	private String cep;
+	private int telefone;
 	
 	public int getRa()
 	{
@@ -16,9 +17,14 @@ public class Aluno implements Cloneable
 		return this.nome;
 	}
 	
-	public String getEmail()
+	public String getCep()
 	{
 		 return this.cep;
+	}
+	
+	public int getTelefone()
+	{
+		return this.telefone;
 	}
 	
 	public void setRa (int ra) throws Exception
@@ -37,19 +43,28 @@ public class Aluno implements Cloneable
 			 this.nome = nome;
 	}
 		  
-	public void setEmail (String cep) throws Exception
+	public void setCep (String cep) throws Exception
 	{
 		if (cep==null || cep.equals(""))
 			 throw new Exception ("Email invalido");
 
 		 this.cep = cep;
 	}
+	
+	public void setTelefone (int telefone) throws Exception
+	{
+		if (telefone<0)
+			throw new Exception ("Telefone inválido!");
+		
+		this.telefone = telefone;
+	}
 		  
-	public Aluno(int ra, String nome, String email)throws Exception
+	public Aluno(int ra, String nome, String cep, int telefone)throws Exception
 	{
 		this.setRa  (ra);
 		this.setNome (nome);
-		this.setEmail(email);
+		this.setCep(cep);
+		this.setTelefone(telefone);
 	}
 		  
 	public String toString ()
@@ -58,8 +73,9 @@ public class Aluno implements Cloneable
 
 		ret +="Ra : " + this.ra+"\n";
 		ret +="Nome : " + this.nome+"\n";
-		ret +="Email : " + this.cep+"\n";
-
+		ret +="Cep : " + this.cep+"\n";
+		ret += "Telefone : " + this.telefone+"\n";
+		
 		return ret;
 	}
 		  
@@ -70,6 +86,7 @@ public class Aluno implements Cloneable
 		ret = ret + new Integer(this.ra).hashCode();
 		ret = ret + this.nome.hashCode();
 		ret = ret + this.cep.hashCode();
+		ret = ret + new Integer (this.telefone).hashCode();
 
 		return ret;
 	}
@@ -79,7 +96,7 @@ public class Aluno implements Cloneable
 		this.ra = modelo.ra; // nao clono, pq nao eh objeto
 		this.nome = modelo.nome;
 		this.cep = modelo.cep;
-
+		this.telefone = modelo.telefone;
 	}
 	
 	public Object clone ()

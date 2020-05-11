@@ -51,14 +51,15 @@ public class Alunos
             sql = "INSERT INTO ALUNOS " +
                   "(RA,NOME,CEP) " +
                   "VALUES " +
-                  "(?,?,?)";
+                  "(?,?,?,?)";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
 
             BDSQLServer.COMANDO.setInt    (1, aluno.getRa ());
             BDSQLServer.COMANDO.setString (2, aluno.getNome ());
-            BDSQLServer.COMANDO.setString  (3, aluno.getEmail ());
-
+            BDSQLServer.COMANDO.setString  (3, aluno.getCep ());
+            BDSQLServer.COMANDO.setInt  (3, aluno.getTelefone ());
+            
             BDSQLServer.COMANDO.executeUpdate ();
             BDSQLServer.COMANDO.commit        ();
         }
@@ -111,14 +112,16 @@ public class Alunos
 
             sql = "UPDATE ALUNOS " +
                   "SET NOME=? " +
-                  ", EMAIL=? " +
+                  ", TELEFONE=? " +
+                  ", CEP=? " +
                   "WHERE RA = ?";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
 
             BDSQLServer.COMANDO.setString (1, aluno.getNome ());
-            BDSQLServer.COMANDO.setString  (2, aluno.getEmail ());
-            BDSQLServer.COMANDO.setInt    (3, aluno.getRa ());
+            BDSQLServer.COMANDO.setInt  (2, aluno.getTelefone ());
+            BDSQLServer.COMANDO.setString(3, aluno.getCep());
+            BDSQLServer.COMANDO.setInt    (4, aluno.getRa ());
 
             BDSQLServer.COMANDO.executeUpdate ();
             BDSQLServer.COMANDO.commit        ();
@@ -157,8 +160,9 @@ public class Alunos
                 throw new Exception ("Nao cadastrado");
            
             aluno = new Aluno (resultado.getInt   ("ra"),
-                               resultado.getString("nome"),
-                               resultado.getString ("email"));
+                               resultado.getString("nome"), 
+                               resultado.getString ("cep"),
+                               resultado.getInt("telefone"));
           
         }
         catch (SQLException erro)
