@@ -49,16 +49,18 @@ public class Alunos
             String sql;
 
             sql = "INSERT INTO ALUNOS " +
-                  "(RA,NOME,CEP) " +
+                  "(RA,NOME,TELEFONE,CEP,NUMERO,COMPLEMENTO) " +
                   "VALUES " +
-                  "(?,?,?,?)";
+                  "(?,?,?,?,?,?)";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
 
             BDSQLServer.COMANDO.setInt    (1, aluno.getRa ());
             BDSQLServer.COMANDO.setString (2, aluno.getNome ());
-            BDSQLServer.COMANDO.setString  (3, aluno.getCep ());
             BDSQLServer.COMANDO.setInt  (3, aluno.getTelefone ());
+            BDSQLServer.COMANDO.setString  (4, aluno.getCep ());
+            BDSQLServer.COMANDO.setInt  (5, aluno.getNumero ());
+            BDSQLServer.COMANDO.setString  (6, aluno.getComplemento ());
             
             BDSQLServer.COMANDO.executeUpdate ();
             BDSQLServer.COMANDO.commit        ();
@@ -114,14 +116,18 @@ public class Alunos
                   "SET NOME=? " +
                   ", TELEFONE=? " +
                   ", CEP=? " +
+                  ", NUMERO=? " +
+                  ", COMLEMENTO=? " +
                   "WHERE RA = ?";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
 
             BDSQLServer.COMANDO.setString (1, aluno.getNome ());
             BDSQLServer.COMANDO.setInt  (2, aluno.getTelefone ());
-            BDSQLServer.COMANDO.setString(3, aluno.getCep());
-            BDSQLServer.COMANDO.setInt    (4, aluno.getRa ());
+            BDSQLServer.COMANDO.setString (3, aluno.getCep());
+            BDSQLServer.COMANDO.setInt (4, aluno.getNumero());
+            BDSQLServer.COMANDO.setString (5, aluno.getComplemento());
+            BDSQLServer.COMANDO.setInt    (6, aluno.getRa ());
 
             BDSQLServer.COMANDO.executeUpdate ();
             BDSQLServer.COMANDO.commit        ();
@@ -162,7 +168,9 @@ public class Alunos
             aluno = new Aluno (resultado.getInt   ("ra"),
                                resultado.getString("nome"), 
                                resultado.getString ("cep"),
-                               resultado.getInt("telefone"));
+                               resultado.getInt("telefone"),
+                               resultado.getInt("numero"),
+                               resultado.getString("complemento"));
           
         }
         catch (SQLException erro)
