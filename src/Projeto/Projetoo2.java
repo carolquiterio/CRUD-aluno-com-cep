@@ -20,6 +20,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JLayeredPane;
 import javax.swing.JTable;
 import java.awt.TextArea;
+import java.awt.Toolkit;
+
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import javax.swing.DropMode;
 import javax.swing.JMenuItem;
@@ -199,19 +201,19 @@ public class Projetoo2 {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(75, 22, 118, 30);
+		textField_1.setBounds(75, 11, 118, 30);
 		panel_4.add(textField_1);
 		
 		JLabel label = new JLabel("RA:");
-		label.setBounds(10, 22, 65, 30);
+		label.setBounds(10, 11, 65, 30);
 		panel_4.add(label);
 		
 		JLabel label_1 = new JLabel("Nome:");
-		label_1.setBounds(10, 63, 65, 30);
+		label_1.setBounds(10, 52, 65, 30);
 		panel_4.add(label_1);
 		
 		JLabel lblCep = new JLabel("CEP:");
-		lblCep.setBounds(10, 105, 65, 30);
+		lblCep.setBounds(10, 94, 65, 30);
 		panel_4.add(lblCep);
 		
 		JButton button_3 = new JButton("Incluir");
@@ -305,61 +307,61 @@ public class Projetoo2 {
 		
 		textField_10 = new JTextField();
 		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_10.setBounds(35, 252, 455, 30);
+		textField_10.setBounds(35, 236, 455, 57);
 		panel_4.add(textField_10);
 		textField_10.setColumns(10);
 		
 		JLabel label_9 = new JLabel("Os resultados da consulta apareceram aqui");
-		label_9.setBounds(35, 223, 276, 30);
+		label_9.setBounds(35, 211, 276, 30);
 		panel_4.add(label_9);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(75, 63, 118, 30);
+		textField.setBounds(75, 52, 118, 30);
 		panel_4.add(textField);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(75, 105, 118, 30);
+		textField_2.setBounds(75, 94, 118, 30);
 		panel_4.add(textField_2);		
 		
 		JLabel lblRua = new JLabel("Rua:");
-		lblRua.setBounds(203, 22, 65, 30);
+		lblRua.setBounds(203, 11, 65, 30);
 		panel_4.add(lblRua);
 		
 		JLabel lblBairro = new JLabel("Bairro:");
-		lblBairro.setBounds(203, 63, 65, 30);
+		lblBairro.setBounds(203, 52, 65, 30);
 		panel_4.add(lblBairro);
 		
 		JLabel lblCidade = new JLabel("Cidade:");
-		lblCidade.setBounds(203, 105, 65, 30);
+		lblCidade.setBounds(203, 94, 65, 30);
 		panel_4.add(lblCidade);
 		
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
 		textField_3.setColumns(10);
-		textField_3.setBounds(268, 105, 118, 30);
+		textField_3.setBounds(268, 94, 118, 30);
 		panel_4.add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setEditable(false);
 		textField_4.setColumns(10);
-		textField_4.setBounds(268, 63, 118, 30);
+		textField_4.setBounds(268, 52, 118, 30);
 		panel_4.add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setEditable(false);
 		textField_5.setColumns(10);
-		textField_5.setBounds(268, 22, 118, 30);
+		textField_5.setBounds(268, 11, 118, 30);
 		panel_4.add(textField_5);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(10, 146, 65, 30);
+		lblTelefone.setBounds(10, 135, 65, 30);
 		panel_4.add(lblTelefone);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
-		textField_6.setBounds(75, 146, 118, 30);
+		textField_6.setBounds(75, 135, 118, 30);
 		panel_4.add(textField_6);
 		textField_6.addMouseListener(new java.awt.event.MouseAdapter() {
 	        public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -368,31 +370,31 @@ public class Projetoo2 {
 	    });
 		
 		JLabel lblEstado = new JLabel("Estado:");
-		lblEstado.setBounds(203, 146, 65, 30);
+		lblEstado.setBounds(203, 135, 65, 30);
 		panel_4.add(lblEstado);
 		
 		textField_7 = new JTextField();
 		textField_7.setEditable(false);
 		textField_7.setColumns(10);
-		textField_7.setBounds(268, 146, 118, 30);
+		textField_7.setBounds(268, 135, 118, 30);
 		panel_4.add(textField_7);
 		
 		JLabel lblComplemento = new JLabel("Complto:");
-		lblComplemento.setBounds(203, 187, 65, 30);
+		lblComplemento.setBounds(203, 176, 65, 30);
 		panel_4.add(lblComplemento);
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero:");
-		lblNmero.setBounds(10, 187, 65, 30);
+		lblNmero.setBounds(10, 176, 65, 30);
 		panel_4.add(lblNmero);
 		
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
-		textField_8.setBounds(75, 187, 118, 30);
+		textField_8.setBounds(75, 176, 118, 30);
 		panel_4.add(textField_8);
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
-		textField_9.setBounds(268, 187, 118, 30);
+		textField_9.setBounds(268, 176, 118, 30);
 		panel_4.add(textField_9);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
