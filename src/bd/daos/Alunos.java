@@ -80,14 +80,11 @@ public class Alunos
         {
             String sql;
            
-            sql = "if exists(select ra from fez where ra = ?)BEGIN DELETE FROM FEZ WHERE RA = ? DELETE FROM ALUNOS WHERE RA = ? END else DELETE FROM ALUNOS WHERE RA = ?";
+            sql = " DELETE FROM ALUNOS WHERE RA = ?";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
      
             BDSQLServer.COMANDO.setInt (1, ra);
-            BDSQLServer.COMANDO.setInt (2, ra);
-            BDSQLServer.COMANDO.setInt (3, ra);
-            BDSQLServer.COMANDO.setInt (4, ra);
            
             BDSQLServer.COMANDO.executeUpdate ();
           
@@ -117,7 +114,7 @@ public class Alunos
                   ", TELEFONE=? " +
                   ", CEP=? " +
                   ", NUMERO=? " +
-                  ", COMLEMENTO=? " +
+                  ", COMPLEMENTO=? " +
                   "WHERE RA = ?";
 
             BDSQLServer.COMANDO.prepareStatement (sql);
