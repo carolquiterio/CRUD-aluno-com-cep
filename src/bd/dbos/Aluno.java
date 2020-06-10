@@ -15,7 +15,7 @@ public class Aluno implements Cloneable
 
 	public void setNumero(int numero) throws Exception 
 	{
-		if (numero >=0 )
+		if (numero <=0 )
 			throw new Exception ("Número inválido!");
 		this.numero = numero;
 	}
