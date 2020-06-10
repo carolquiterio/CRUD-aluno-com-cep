@@ -16,8 +16,8 @@ public class BDSQLServer
             comando =
             new MeuPreparedStatement (
             "com.microsoft.sqlserver.jdbc.SQLServerDriver",
-            "jdbc:sqlserver://regulus:1433;databasename=BD00000",
-            "BD00000", "00000");
+            "jdbc:sqlserver://regulus:1433;databasename=BD19351",
+            "BD19351", "euamofiana");
         }
         catch (Exception erro)
         {
