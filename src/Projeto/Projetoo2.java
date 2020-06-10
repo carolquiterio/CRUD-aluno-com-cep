@@ -63,8 +63,10 @@ public class Projetoo2 {
 			String nom = textField.getText();
 			String cep = textField_2.getText();
 			int telefone = Integer.parseInt(textField_6.getText());
+			int numero = Integer.parseInt(textField_8.getText());
+			String complemento = textField_9.getText();
 			
-			Alunos.incluir(new Aluno(cod, nom, cep, telefone));
+			Alunos.incluir(new Aluno(cod, nom, cep, telefone, numero, complemento));
 			
 		}
 		catch(Exception err)
@@ -96,7 +98,9 @@ public class Projetoo2 {
 			String nom = textField.getText();
 			String cep = textField_2.getText();
 			int telefone = Integer.parseInt(textField_6.getText());
-			Alunos.atualizar(new Aluno(cod, nom, cep, telefone));
+			int numero = Integer.parseInt(textField_8.getText());
+			String complemento = textField_9.getText();
+			Alunos.atualizar(new Aluno(cod, nom, cep, telefone, numero, complemento));
 		}
 		catch(Exception err)
 		{
