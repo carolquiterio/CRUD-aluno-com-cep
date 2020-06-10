@@ -6,6 +6,31 @@ public class Aluno implements Cloneable
 	private String nome;
 	private String cep;
 	private int telefone;
+	private int numero;
+	private String complemento;
+	
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) throws Exception 
+	{
+		if (numero >=0 )
+			throw new Exception ("Número inválido!");
+		this.numero = numero;
+	}
+
+	public String getComplemento() 
+	{
+		return complemento;
+	}
+
+	public void setComplemento(String complemento) throws Exception
+	{
+		if (complemento == "" || complemento == null )
+			throw new Exception ("Complemento inválido!");
+		this.complemento = complemento;
+	}
 	
 	public int getRa()
 	{
@@ -59,12 +84,14 @@ public class Aluno implements Cloneable
 		this.telefone = telefone;
 	}
 		  
-	public Aluno(int ra, String nome, String cep, int telefone)throws Exception
+	public Aluno(int ra, String nome, String cep, int telefone, int numero, String complemento)throws Exception
 	{
 		this.setRa  (ra);
 		this.setNome (nome);
 		this.setCep(cep);
 		this.setTelefone(telefone);
+		this.setNumero(numero);
+		this.setComplemento(complemento);
 	}
 		  
 	public String toString ()
@@ -73,8 +100,10 @@ public class Aluno implements Cloneable
 
 		ret +="Ra : " + this.ra+"\n";
 		ret +="Nome : " + this.nome+"\n";
-		ret +="Cep : " + this.cep+"\n";
 		ret += "Telefone : " + this.telefone+"\n";
+		ret +="Cep : " + this.cep+"\n";
+		ret += "Número : " + this.numero+"\n";
+		ret += "Complemento : " + this.complemento+"\n";
 		
 		return ret;
 	}
@@ -87,6 +116,8 @@ public class Aluno implements Cloneable
 		ret = ret + this.nome.hashCode();
 		ret = ret + this.cep.hashCode();
 		ret = ret + new Integer (this.telefone).hashCode();
+		ret = ret + new Integer (this.numero).hashCode();
+		ret = ret + this.complemento.hashCode();
 
 		return ret;
 	}
@@ -97,6 +128,8 @@ public class Aluno implements Cloneable
 		this.nome = modelo.nome;
 		this.cep = modelo.cep;
 		this.telefone = modelo.telefone;
+		this.numero = modelo.numero;
+		this.complemento = modelo.complemento;
 	}
 	
 	public Object clone ()
