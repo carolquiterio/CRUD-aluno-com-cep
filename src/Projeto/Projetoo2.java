@@ -148,6 +148,26 @@ public class Projetoo2 {
 		}
 	}
 	
+	public void limpaCampos()
+	{
+		try
+		{
+			textField.setText("");
+			textField_2.setText("");
+			textField_1.setText("");
+			textField_3.setText("");
+			textField_4.setText("");
+			textField_5.setText("");
+			textField_6.setText("");
+			textField_7.setText("");
+			textField_8.setText("");
+			textField_9.setText("");
+		}
+		catch(Exception err)
+		{
+			textField_10.setText(err.getMessage());
+		}
+	}
 	/**
 	 * Launch the application.
 	 */
@@ -224,16 +244,7 @@ public class Projetoo2 {
 				try
 				{
 					trataIncluirAlunos();
-					textField.setText("");
-					textField_2.setText("");
-					textField_1.setText("");
-					textField_3.setText("");
-					textField_4.setText("");
-					textField_5.setText("");
-					textField_6.setText("");
-					textField_7.setText("");
-					textField_8.setText("");
-					textField_9.setText("");
+					limpaCampos();
 					
 				}
 				catch(Exception err)
@@ -253,7 +264,7 @@ public class Projetoo2 {
 				try
 				{
 					trataExcluirAlunos();
-					textField_1.setText("");
+					limpaCampos();
 				}
 				catch(Exception err)
 				{}
@@ -269,16 +280,7 @@ public class Projetoo2 {
 				try
 				{
 					trataAtualizarAlunos();
-					textField.setText("");
-					textField_2.setText("");
-					textField_1.setText("");
-					textField_3.setText("");
-					textField_4.setText("");
-					textField_5.setText("");
-					textField_6.setText("");
-					textField_7.setText("");
-					textField_8.setText("");
-					textField_9.setText("");
+					limpaCampos();
 				}
 				catch(Exception err)
 				{}
@@ -295,9 +297,7 @@ public class Projetoo2 {
 				{
 					
 					trataGetAlunos();
-					textField_2.setText("");
-					textField_1.setText("");
-					textField_3.setText("");
+					limpaCampos();
 				}
 				catch(Exception err)
 				{}
