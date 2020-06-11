@@ -223,6 +223,16 @@ public class Projetoo2 {
 		textField_1.setBounds(75, 11, 118, 30);
 		panel_4.add(textField_1);
 		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(75, 135, 118, 30);
+		panel_4.add(textField_6);
+		textField_6.addMouseListener(new java.awt.event.MouseAdapter() {
+	        public void mouseClicked(java.awt.event.MouseEvent evt) {
+	            trataPreencherEndereco();
+	        }
+	    });
+		
 		textField_1.addMouseListener(new java.awt.event.MouseAdapter() {
 	        public void mouseClicked(java.awt.event.MouseEvent evt) {
 	            textField_10.setText("");
@@ -252,9 +262,7 @@ public class Projetoo2 {
 					
 				}
 				catch(Exception err)
-				{
-					textField_10.setText(err.getMessage());
-				}
+				{}
 			}
 			
 		});
@@ -363,16 +371,6 @@ public class Projetoo2 {
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setBounds(10, 135, 65, 30);
 		panel_4.add(lblTelefone);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(75, 135, 118, 30);
-		panel_4.add(textField_6);
-		textField_6.addMouseListener(new java.awt.event.MouseAdapter() {
-	        public void mouseClicked(java.awt.event.MouseEvent evt) {
-	            trataPreencherEndereco();
-	        }
-	    });
 		
 		JLabel lblEstado = new JLabel("Estado:");
 		lblEstado.setBounds(203, 135, 65, 30);
