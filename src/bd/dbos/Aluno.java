@@ -13,23 +13,9 @@ public class Aluno implements Cloneable
 		return numero;
 	}
 
-	public void setNumero(int numero) throws Exception 
-	{
-		if (numero <=0 )
-			throw new Exception ("Número inválido!");
-		this.numero = numero;
-	}
-
 	public String getComplemento() 
 	{
 		return complemento;
-	}
-
-	public void setComplemento(String complemento) throws Exception
-	{
-		if (complemento == "" || complemento == null )
-			throw new Exception ("Complemento inválido!");
-		this.complemento = complemento;
 	}
 	
 	public int getRa()
@@ -82,6 +68,20 @@ public class Aluno implements Cloneable
 			throw new Exception ("Telefone inválido!");
 		
 		this.telefone = telefone;
+	}
+	
+	public void setNumero(int numero) throws Exception 
+	{
+		if (numero <=0 )
+			throw new Exception ("Número inválido!");
+		this.numero = numero;
+	}
+	
+	public void setComplemento(String complemento) throws Exception
+	{
+		if (complemento == "" || complemento == null )
+			throw new Exception ("Complemento inválido!");
+		this.complemento = complemento;
 	}
 		  
 	public Aluno(int ra, String nome, String cep, int telefone, int numero, String complemento)throws Exception
