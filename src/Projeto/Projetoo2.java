@@ -38,6 +38,7 @@ import java.awt.Insets;
 import javax.swing.JToolBar;
 import java.awt.Color;
 import javax.swing.JTextArea;
+import javax.swing.JList;
 
 public class Projetoo2 {
 
@@ -200,14 +201,8 @@ public class Projetoo2 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Consulta Escolar : ");
-		lblNewLabel.setBounds(183, 11, 197, 14);
-		lblNewLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		frame.getContentPane().add(lblNewLabel);
-		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 27, 534, 332);
+		tabbedPane.setBounds(20, 0, 534, 369);
 		frame.getContentPane().add(tabbedPane);
 		
 		JPanel panel_1 = new JPanel();
@@ -243,7 +238,7 @@ public class Projetoo2 {
 		panel_4.add(label);
 		
 		JLabel label_1 = new JLabel("Nome:");
-		label_1.setBounds(10, 52, 65, 30);
+		label_1.setBounds(10, 53, 65, 30);
 		panel_4.add(label_1);
 		
 		JLabel lblCep = new JLabel("CEP:");
@@ -318,12 +313,12 @@ public class Projetoo2 {
 		panel_4.add(button_get);
 		
 		JLabel label_9 = new JLabel("Os resultados da consulta apareceram aqui");
-		label_9.setBounds(35, 211, 276, 30);
+		label_9.setBounds(10, 206, 276, 30);
 		panel_4.add(label_9);
 		
 		textField_nome = new JTextField();
 		textField_nome.setColumns(10);
-		textField_nome.setBounds(75, 52, 118, 30);
+		textField_nome.setBounds(75, 53, 118, 30);
 		panel_4.add(textField_nome);
 		
 		textField_cep = new JTextField();
@@ -336,7 +331,7 @@ public class Projetoo2 {
 		panel_4.add(lblRua);
 		
 		JLabel lblBairro = new JLabel("Bairro:");
-		lblBairro.setBounds(203, 52, 65, 30);
+		lblBairro.setBounds(203, 53, 65, 30);
 		panel_4.add(lblBairro);
 		
 		JLabel lblCidade = new JLabel("Cidade:");
@@ -352,7 +347,7 @@ public class Projetoo2 {
 		textField_bairro = new JTextField();
 		textField_bairro.setEditable(false);
 		textField_bairro.setColumns(10);
-		textField_bairro.setBounds(268, 52, 118, 30);
+		textField_bairro.setBounds(268, 53, 118, 30);
 		panel_4.add(textField_bairro);
 		
 		textField_rua = new JTextField();
@@ -396,8 +391,12 @@ public class Projetoo2 {
 		textArea_resultados = new JTextArea();
 		textArea_resultados.setColumns(2);
 		textArea_resultados.setEditable(false);
-		textArea_resultados.setBounds(10, 235, 485, 58);
+		textArea_resultados.setBounds(10, 235, 258, 95);
 		panel_4.add(textArea_resultados);
+		
+		JList list = new JList();
+		list.setBounds(192, 235, 1, 1);
+		panel_4.add(list);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
