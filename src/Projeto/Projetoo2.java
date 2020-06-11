@@ -177,6 +177,7 @@ public class Projetoo2 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setEnabled(false);
 		frame.setBounds(100, 100, 589, 408);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -217,7 +218,6 @@ public class Projetoo2 {
 		panel_4.add(lblCep);
 		
 		JButton button_3 = new JButton("Incluir");
-		button_3.setEnabled(false);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -247,7 +247,6 @@ public class Projetoo2 {
 		panel_4.add(button_3);
 		
 		JButton button_4 = new JButton("Excluir");
-		button_4.setEnabled(false);
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -264,7 +263,6 @@ public class Projetoo2 {
 		panel_4.add(button_4);
 		
 		JButton button_5 = new JButton("Atualizar");
-		button_5.setEnabled(false);
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -290,7 +288,6 @@ public class Projetoo2 {
 		panel_4.add(button_5);
 		
 		JButton button_6 = new JButton("Consultar");
-		button_6.setEnabled(false);
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
