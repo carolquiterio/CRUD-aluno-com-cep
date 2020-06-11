@@ -44,35 +44,35 @@ public class Projetoo2 {
 	
 	Logradouro logradouro;	
 	Alunos  alunos = new Alunos(); 
-	private JTextField textField_1;
-	private JTextField textField_10;
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
+	private JTextField textField_RA;
+	private JTextField textField_resultados;
+	private JTextField textField_nome;
+	private JTextField textField_cep;
+	private JTextField textField_cidade;
+	private JTextField textField_bairro;
+	private JTextField textField_rua;
+	private JTextField textField_tel;
+	private JTextField textField_estado;
+	private JTextField textField_num;
+	private JTextField textField_complto;
 	
 	public void trataIncluirAlunos() throws Exception
 	{
 		try
 		{                        
-			int cod =  Integer.parseInt(textField_1.getText());
-			String nom = textField.getText();
-			String cep = textField_2.getText();
-			int telefone = Integer.parseInt(textField_6.getText());
-			int numero = Integer.parseInt(textField_8.getText());
-			String complemento = textField_9.getText();
+			int cod =  Integer.parseInt(textField_RA.getText());
+			String nom = textField_nome.getText();
+			String cep = textField_cep.getText();
+			int telefone = Integer.parseInt(textField_tel.getText());
+			int numero = Integer.parseInt(textField_num.getText());
+			String complemento = textField_complto.getText();
 			
 			Alunos.incluir(new Aluno(cod, nom, cep, telefone, numero, complemento));
 			
 		}
 		catch(Exception err)
 		{
-			textField_10.setText(err.getMessage());
+			textField_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -81,12 +81,12 @@ public class Projetoo2 {
 		try
 		{
 			
-			int cod =  Integer.parseInt(textField_1.getText());
+			int cod =  Integer.parseInt(textField_RA.getText());
 			Alunos.excluir(cod);
 		}
 		catch(Exception err)
 		{
-			textField_10.setText(err.getMessage());
+			textField_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -94,18 +94,18 @@ public class Projetoo2 {
 	{
 		try
 		{
-			textField_10.setText("");
-			int cod =  Integer.parseInt(textField_1.getText());
-			String nom = textField.getText();
-			String cep = textField_2.getText();
-			int telefone = Integer.parseInt(textField_6.getText());
-			int numero = Integer.parseInt(textField_8.getText());
-			String complemento = textField_9.getText();
+			textField_resultados.setText("");
+			int cod =  Integer.parseInt(textField_RA.getText());
+			String nom = textField_nome.getText();
+			String cep = textField_cep.getText();
+			int telefone = Integer.parseInt(textField_tel.getText());
+			int numero = Integer.parseInt(textField_num.getText());
+			String complemento = textField_complto.getText();
 			Alunos.atualizar(new Aluno(cod, nom, cep, telefone, numero, complemento));
 		}
 		catch(Exception err)
 		{
-			textField_10.setText(err.getMessage());
+			textField_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -113,13 +113,12 @@ public class Projetoo2 {
 	{
 		try
 		{
-			textField_10.setText("");
-			int cod =  Integer.parseInt(textField_1.getText());
-			textField_10.setText(Alunos.getAluno(cod) + "\n");
+			int cod =  Integer.parseInt(textField_RA.getText());
+			textField_resultados.setText(Alunos.getAluno(cod) + "\n");
 		}
 		catch(Exception err)
 		{
-			textField_10.setText(err.getMessage());
+			textField_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -127,22 +126,22 @@ public class Projetoo2 {
 	{
 		try
 		{
-			String cep = textField_2.getText();
+			String cep = textField_cep.getText();
 			
 			logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "http://api.postmon.com.br/v1/cep", cep);
 			
-			textField_5.setText(logradouro.getLogradouro() + "");
+			textField_rua.setText(logradouro.getLogradouro() + "");
 		
-			textField_3.setText(logradouro.getCidade() + "");
+			textField_cidade.setText(logradouro.getCidade() + "");
 			 
-			textField_4.setText(logradouro.getBairro() + "");
+			textField_bairro.setText(logradouro.getBairro() + "");
 			
-			textField_7.setText(logradouro.getEstado() + "");
+			textField_estado.setText(logradouro.getEstado() + "");
 			
 		}
 		catch(Exception err)
 		{
-			textField_10.setText(err.getMessage());
+			textField_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -150,20 +149,20 @@ public class Projetoo2 {
 	{
 		try
 		{
-			textField.setText("");
-			textField_2.setText("");
-			textField_1.setText("");
-			textField_3.setText("");
-			textField_4.setText("");
-			textField_5.setText("");
-			textField_6.setText("");
-			textField_7.setText("");
-			textField_8.setText("");
-			textField_9.setText("");
+			textField_nome.setText("");
+			textField_cep.setText("");
+			textField_RA.setText("");
+			textField_cidade.setText("");
+			textField_bairro.setText("");
+			textField_rua.setText("");
+			textField_tel.setText("");
+			textField_estado.setText("");
+			textField_num.setText("");
+			textField_complto.setText("");
 		}
 		catch(Exception err)
 		{
-			textField_10.setText(err.getMessage());
+			textField_resultados.setText(err.getMessage());
 		}
 	}
 	/**
@@ -218,24 +217,23 @@ public class Projetoo2 {
 		panel_4.setLayout(null);
 		panel_1.add(panel_4, BorderLayout.CENTER);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(75, 11, 118, 30);
-		panel_4.add(textField_1);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(75, 135, 118, 30);
-		panel_4.add(textField_6);
-		textField_6.addMouseListener(new java.awt.event.MouseAdapter() {
+		textField_RA = new JTextField();
+		textField_RA.setColumns(10);
+		textField_RA.setBounds(75, 11, 118, 30);
+		panel_4.add(textField_RA);
+		textField_RA.addMouseListener(new java.awt.event.MouseAdapter() {
 	        public void mouseClicked(java.awt.event.MouseEvent evt) {
-	            trataPreencherEndereco();
+	            textField_resultados.setText("");
 	        }
 	    });
 		
-		textField_1.addMouseListener(new java.awt.event.MouseAdapter() {
+		textField_tel = new JTextField();
+		textField_tel.setColumns(10);
+		textField_tel.setBounds(75, 135, 118, 30);
+		panel_4.add(textField_tel);
+		textField_tel.addMouseListener(new java.awt.event.MouseAdapter() {
 	        public void mouseClicked(java.awt.event.MouseEvent evt) {
-	            textField_10.setText("");
+	            trataPreencherEndereco();
 	        }
 	    });
 		
@@ -251,8 +249,8 @@ public class Projetoo2 {
 		lblCep.setBounds(10, 94, 65, 30);
 		panel_4.add(lblCep);
 		
-		JButton button_3 = new JButton("Incluir");
-		button_3.addActionListener(new ActionListener() {
+		JButton button_incluir = new JButton("Incluir");
+		button_incluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				try
@@ -266,11 +264,11 @@ public class Projetoo2 {
 			}
 			
 		});
-		button_3.setBounds(406, 11, 89, 23);
-		panel_4.add(button_3);
+		button_incluir.setBounds(406, 11, 89, 23);
+		panel_4.add(button_incluir);
 		
-		JButton button_4 = new JButton("Excluir");
-		button_4.addActionListener(new ActionListener() {
+		JButton button_excluir = new JButton("Excluir");
+		button_excluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				try
@@ -282,8 +280,8 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_4.setBounds(406, 69, 89, 23);
-		panel_4.add(button_4);
+		button_excluir.setBounds(406, 69, 89, 23);
+		panel_4.add(button_excluir);
 		
 		JButton button_5 = new JButton("Atualizar");
 		button_5.addActionListener(new ActionListener() {
@@ -301,8 +299,8 @@ public class Projetoo2 {
 		button_5.setBounds(406, 123, 89, 23);
 		panel_4.add(button_5);
 		
-		JButton button_6 = new JButton("Consultar");
-		button_6.addActionListener(new ActionListener() {
+		JButton button_get = new JButton("Consultar");
+		button_get.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				try
@@ -315,28 +313,28 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_6.setBounds(406, 180, 89, 23);
-		panel_4.add(button_6);
+		button_get.setBounds(406, 180, 89, 23);
+		panel_4.add(button_get);
 		
-		textField_10 = new JTextField();
-		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_10.setBounds(35, 236, 455, 57);
-		panel_4.add(textField_10);
-		textField_10.setColumns(10);
+		textField_resultados = new JTextField();
+		textField_resultados.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_resultados.setBounds(35, 236, 455, 57);
+		panel_4.add(textField_resultados);
+		textField_resultados.setColumns(10);
 		
 		JLabel label_9 = new JLabel("Os resultados da consulta apareceram aqui");
 		label_9.setBounds(35, 211, 276, 30);
 		panel_4.add(label_9);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(75, 52, 118, 30);
-		panel_4.add(textField);
+		textField_nome = new JTextField();
+		textField_nome.setColumns(10);
+		textField_nome.setBounds(75, 52, 118, 30);
+		panel_4.add(textField_nome);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(75, 94, 118, 30);
-		panel_4.add(textField_2);		
+		textField_cep = new JTextField();
+		textField_cep.setColumns(10);
+		textField_cep.setBounds(75, 94, 118, 30);
+		panel_4.add(textField_cep);		
 		
 		JLabel lblRua = new JLabel("Rua:");
 		lblRua.setBounds(203, 11, 65, 30);
@@ -350,23 +348,23 @@ public class Projetoo2 {
 		lblCidade.setBounds(203, 94, 65, 30);
 		panel_4.add(lblCidade);
 		
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setColumns(10);
-		textField_3.setBounds(268, 94, 118, 30);
-		panel_4.add(textField_3);
+		textField_cidade = new JTextField();
+		textField_cidade.setEditable(false);
+		textField_cidade.setColumns(10);
+		textField_cidade.setBounds(268, 94, 118, 30);
+		panel_4.add(textField_cidade);
 		
-		textField_4 = new JTextField();
-		textField_4.setEditable(false);
-		textField_4.setColumns(10);
-		textField_4.setBounds(268, 52, 118, 30);
-		panel_4.add(textField_4);
+		textField_bairro = new JTextField();
+		textField_bairro.setEditable(false);
+		textField_bairro.setColumns(10);
+		textField_bairro.setBounds(268, 52, 118, 30);
+		panel_4.add(textField_bairro);
 		
-		textField_5 = new JTextField();
-		textField_5.setEditable(false);
-		textField_5.setColumns(10);
-		textField_5.setBounds(268, 11, 118, 30);
-		panel_4.add(textField_5);
+		textField_rua = new JTextField();
+		textField_rua.setEditable(false);
+		textField_rua.setColumns(10);
+		textField_rua.setBounds(268, 11, 118, 30);
+		panel_4.add(textField_rua);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setBounds(10, 135, 65, 30);
@@ -376,11 +374,11 @@ public class Projetoo2 {
 		lblEstado.setBounds(203, 135, 65, 30);
 		panel_4.add(lblEstado);
 		
-		textField_7 = new JTextField();
-		textField_7.setEditable(false);
-		textField_7.setColumns(10);
-		textField_7.setBounds(268, 135, 118, 30);
-		panel_4.add(textField_7);
+		textField_estado = new JTextField();
+		textField_estado.setEditable(false);
+		textField_estado.setColumns(10);
+		textField_estado.setBounds(268, 135, 118, 30);
+		panel_4.add(textField_estado);
 		
 		JLabel lblComplemento = new JLabel("Complto:");
 		lblComplemento.setBounds(203, 176, 65, 30);
@@ -390,15 +388,15 @@ public class Projetoo2 {
 		lblNmero.setBounds(10, 176, 65, 30);
 		panel_4.add(lblNmero);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(75, 176, 118, 30);
-		panel_4.add(textField_8);
+		textField_num = new JTextField();
+		textField_num.setColumns(10);
+		textField_num.setBounds(75, 176, 118, 30);
+		panel_4.add(textField_num);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(268, 176, 118, 30);
-		panel_4.add(textField_9);
+		textField_complto = new JTextField();
+		textField_complto.setColumns(10);
+		textField_complto.setBounds(268, 176, 118, 30);
+		panel_4.add(textField_complto);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
