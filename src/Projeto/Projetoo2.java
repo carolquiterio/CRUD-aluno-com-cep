@@ -37,6 +37,7 @@ import javax.swing.JComboBox;
 import java.awt.Insets;
 import javax.swing.JToolBar;
 import java.awt.Color;
+import javax.swing.JTextArea;
 
 public class Projetoo2 {
 
@@ -45,7 +46,6 @@ public class Projetoo2 {
 	Logradouro logradouro;	
 	Alunos  alunos = new Alunos(); 
 	private JTextField textField_RA;
-	private JTextField textField_resultados;
 	private JTextField textField_nome;
 	private JTextField textField_cep;
 	private JTextField textField_cidade;
@@ -55,6 +55,7 @@ public class Projetoo2 {
 	private JTextField textField_estado;
 	private JTextField textField_num;
 	private JTextField textField_complto;
+	private JTextArea textArea_resultados;
 	
 	public void trataIncluirAlunos() throws Exception
 	{
@@ -72,7 +73,7 @@ public class Projetoo2 {
 		}
 		catch(Exception err)
 		{
-			textField_resultados.setText(err.getMessage());
+			textArea_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -86,7 +87,7 @@ public class Projetoo2 {
 		}
 		catch(Exception err)
 		{
-			textField_resultados.setText(err.getMessage());
+			textArea_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -94,7 +95,7 @@ public class Projetoo2 {
 	{
 		try
 		{
-			textField_resultados.setText("");
+			textArea_resultados.setText("");
 			int cod =  Integer.parseInt(textField_RA.getText());
 			String nom = textField_nome.getText();
 			String cep = textField_cep.getText();
@@ -105,7 +106,7 @@ public class Projetoo2 {
 		}
 		catch(Exception err)
 		{
-			textField_resultados.setText(err.getMessage());
+			textArea_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -114,11 +115,11 @@ public class Projetoo2 {
 		try
 		{
 			int cod =  Integer.parseInt(textField_RA.getText());
-			textField_resultados.setText(Alunos.getAluno(cod) + "\n");
+			textArea_resultados.setText(Alunos.getAluno(cod) + "\n");
 		}
 		catch(Exception err)
 		{
-			textField_resultados.setText(err.getMessage());
+			textArea_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -141,7 +142,7 @@ public class Projetoo2 {
 		}
 		catch(Exception err)
 		{
-			textField_resultados.setText(err.getMessage());
+			textArea_resultados.setText(err.getMessage());
 		}
 	}
 	
@@ -162,7 +163,7 @@ public class Projetoo2 {
 		}
 		catch(Exception err)
 		{
-			textField_resultados.setText(err.getMessage());
+			textArea_resultados.setText(err.getMessage());
 		}
 	}
 	/**
@@ -223,7 +224,7 @@ public class Projetoo2 {
 		panel_4.add(textField_RA);
 		textField_RA.addMouseListener(new java.awt.event.MouseAdapter() {
 	        public void mouseClicked(java.awt.event.MouseEvent evt) {
-	            textField_resultados.setText("");
+	        	textArea_resultados.setText("");
 	        }
 	    });
 		
@@ -316,12 +317,6 @@ public class Projetoo2 {
 		button_get.setBounds(406, 180, 89, 23);
 		panel_4.add(button_get);
 		
-		textField_resultados = new JTextField();
-		textField_resultados.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_resultados.setBounds(35, 236, 455, 57);
-		panel_4.add(textField_resultados);
-		textField_resultados.setColumns(10);
-		
 		JLabel label_9 = new JLabel("Os resultados da consulta apareceram aqui");
 		label_9.setBounds(35, 211, 276, 30);
 		panel_4.add(label_9);
@@ -397,6 +392,12 @@ public class Projetoo2 {
 		textField_complto.setColumns(10);
 		textField_complto.setBounds(268, 176, 118, 30);
 		panel_4.add(textField_complto);
+		
+		textArea_resultados = new JTextArea();
+		textArea_resultados.setColumns(2);
+		textArea_resultados.setEditable(false);
+		textArea_resultados.setBounds(10, 235, 485, 58);
+		panel_4.add(textArea_resultados);
 	}
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
