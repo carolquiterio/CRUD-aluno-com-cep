@@ -49,7 +49,7 @@ public class Aluno implements Cloneable
 	public void setNome (String nome) throws Exception
 	{
 		if (nome==null || nome.equals(""))
-			 throw new Exception ("NOME invalido");
+			 throw new Exception ("Nome invalido");
 
 			 this.nome = nome;
 	}
@@ -64,7 +64,7 @@ public class Aluno implements Cloneable
 	
 	public void setTelefone (int telefone) throws Exception
 	{
-		if (telefone<0)
+		if (telefone<=0)
 			throw new Exception ("Telefone inválido!");
 		
 		this.telefone = telefone;
@@ -72,7 +72,7 @@ public class Aluno implements Cloneable
 	
 	public void setNumero(int numero) throws Exception 
 	{
-		if (numero <=0 )
+		if (numero <=0)
 			throw new Exception ("Número inválido!");
 		this.numero = numero;
 	}

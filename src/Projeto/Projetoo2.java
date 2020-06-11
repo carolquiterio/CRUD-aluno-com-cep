@@ -56,11 +56,10 @@ public class Projetoo2 {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	
-	public void trataIncluirAlunos() //throws Exception
+	public void trataIncluirAlunos() throws Exception
 	{
 		try
-		{
-			textField_10.setText("");                         
+		{                        
 			int cod =  Integer.parseInt(textField_1.getText());
 			String nom = textField.getText();
 			String cep = textField_2.getText();
@@ -81,7 +80,7 @@ public class Projetoo2 {
 	{
 		try
 		{
-			textField_10.setText("");
+			
 			int cod =  Integer.parseInt(textField_1.getText());
 			Alunos.excluir(cod);
 		}
@@ -132,11 +131,10 @@ public class Projetoo2 {
 			
 			logradouro = (Logradouro)ClienteWS.getObjeto(Logradouro.class, "http://api.postmon.com.br/v1/cep", cep);
 			
-			
 			textField_5.setText(logradouro.getLogradouro() + "");
 		
 			textField_3.setText(logradouro.getCidade() + "");
-			
+			 
 			textField_4.setText(logradouro.getBairro() + "");
 			
 			textField_7.setText(logradouro.getEstado() + "");
@@ -224,6 +222,12 @@ public class Projetoo2 {
 		textField_1.setColumns(10);
 		textField_1.setBounds(75, 11, 118, 30);
 		panel_4.add(textField_1);
+		
+		textField_1.addMouseListener(new java.awt.event.MouseAdapter() {
+	        public void mouseClicked(java.awt.event.MouseEvent evt) {
+	            textField_10.setText("");
+	        }
+	    });
 		
 		JLabel label = new JLabel("RA:");
 		label.setBounds(10, 11, 65, 30);
