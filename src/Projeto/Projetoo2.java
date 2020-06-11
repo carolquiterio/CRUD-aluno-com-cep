@@ -217,6 +217,7 @@ public class Projetoo2 {
 		panel_4.add(lblCep);
 		
 		JButton button_3 = new JButton("Incluir");
+		button_3.setEnabled(false);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -242,10 +243,11 @@ public class Projetoo2 {
 			}
 			
 		});
-		button_3.setBounds(406, 22, 89, 23);
+		button_3.setBounds(406, 11, 89, 23);
 		panel_4.add(button_3);
 		
 		JButton button_4 = new JButton("Excluir");
+		button_4.setEnabled(false);
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -258,10 +260,11 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_4.setBounds(406, 80, 89, 23);
+		button_4.setBounds(406, 69, 89, 23);
 		panel_4.add(button_4);
 		
 		JButton button_5 = new JButton("Atualizar");
+		button_5.setEnabled(false);
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -283,10 +286,11 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_5.setBounds(406, 134, 89, 23);
+		button_5.setBounds(406, 123, 89, 23);
 		panel_4.add(button_5);
 		
 		JButton button_6 = new JButton("Consultar");
+		button_6.setEnabled(false);
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -302,7 +306,7 @@ public class Projetoo2 {
 				{}
 			}
 		});
-		button_6.setBounds(406, 191, 89, 23);
+		button_6.setBounds(406, 180, 89, 23);
 		panel_4.add(button_6);
 		
 		textField_10 = new JTextField();
