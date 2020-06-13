@@ -103,6 +103,7 @@ public class Projetoo2 {
 			int telefone = Integer.parseInt(textField_tel.getText());
 			int numero = Integer.parseInt(textField_num.getText());
 			String complemento = textField_complto.getText();
+			
 			Alunos.atualizar(new Aluno(cod, nom, cep, telefone, numero, complemento));
 		}
 		catch(Exception err)
