@@ -7,7 +7,6 @@ import bd.dbos.*;
 
 public class Alunos 
 {
-	
 	public static boolean cadastrado (int ra) throws Exception
     {
         boolean retorno = false;

@@ -8,7 +8,6 @@ import cep.Logradouro;
 
 public class Programa
 {
-
     public static void main (String[] args)
     {
         try
@@ -18,12 +17,10 @@ public class Programa
             System.out.println (logradouro);
         	Aluno al = new Aluno(13, "oi", "campinas", 999, 45, "nao" );
         	System.out.println(al.getCep());
-
         }
         catch (Exception e)
         {
             System.out.println (e.getMessage());
         }
     }
-
 }
